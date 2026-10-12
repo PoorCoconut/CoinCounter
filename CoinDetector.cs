@@ -24,19 +24,16 @@ namespace CoinCounter
         { Name = name; Value = value; MaxDiameter = maxDiameter; Color = color; }
     }
 
-    /// <summary>
-    /// Coin counting pipeline, no third-party libraries:
     /// grayscale -> adaptive threshold -> 3x3 opening -> connected components -> size classification.
-    /// </summary>
     public static class CoinDetector
     {
         // Sizes (in pixels) were measured on the provided scan (776x1024).
         // Bounding-box diameters: 5c ~60, 10c ~66, 25c ~77, P1 ~91, P5 ~102. Cut-offs sit between them.
         public static readonly Denomination[] Denominations = new Denomination[]
         {
-            new Denomination("5 sentimo",  0.05m, 63.5,  Color.Magenta),
-            new Denomination("10 sentimo", 0.10m, 71.5,  Color.Orange),
-            new Denomination("25 sentimo", 0.25m, 84.0,  Color.Lime),
+            new Denomination("5 centavo",  0.05m, 63.5,  Color.Magenta),
+            new Denomination("10 centavo", 0.10m, 71.5,  Color.Orange),
+            new Denomination("25 centavo", 0.25m, 84.0,  Color.Lime),
             new Denomination("1 piso",     1.00m, 96.5,  Color.Cyan),
             new Denomination("5 piso",     5.00m, 9999,  Color.Red),
         };
